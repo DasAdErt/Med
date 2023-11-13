@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,7 @@ namespace WpfApp523452453453t
             InitializeComponent();
         }
 
-        int jopa;
+        int balls;
         
         public void tupoy(object sender, RoutedEventArgs e)
         {
