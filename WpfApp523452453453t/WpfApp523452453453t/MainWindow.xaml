@@ -5,34 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp523452453453t"
         mc:Ignorable="d"
-        Title="Medic Program" Height="875" Width="850" ResizeMode="NoResize">
+        Title="Medic Program" Height="875" Width="875" ResizeMode="NoResize">
     <Grid Background=" #D8E2F3" ScrollViewer.HorizontalScrollBarVisibility="Auto">
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Расчёт факторов риска ВТЭО: " Margin="0,10,0,0" VerticalAlignment="Top" Background="White" FontSize="25" Width="600" HorizontalAlignment="Center" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
 
         <Label Content="Предсуществующие факторы риска" HorizontalAlignment="Left" Margin="25,77,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
         <ListBox Margin="25,129,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
-            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" IsCheked="здесь + былл метод" Uncheked="здесь - балл метод" Foreground="White"></CheckBox>
-            <CheckBox Content="Предшествующее ВТЭО, спровоцированное большим хирургическим вмешательством" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Подтвержденное наличие тромбофилии высокого риска" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Сопутствующие заболевания" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Семейный анамнез неспровоцированной или связанное с воздействием эстрогена ВТЭО у родственника первой степени родства" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Известная тромбофилия низкого риска (без ВТЭО)" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="ИМТ ≥ 30 " FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="ИМТ ≥ 40" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Возраст (>35 лет)" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="≥ 3 родов" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Курение" FontSize="12" Foreground="White"></CheckBox>
-            <CheckBox Content="Варикозное расширение вен нижних конечностей тяжелой степени" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White" Checked="fourPlus" Unchecked="fourMinus"></CheckBox>
+            <CheckBox Content="Предшествующее ВТЭО, спровоцированное большим хирургическим вмешательством" FontSize="12" Foreground="White" Checked="threePlus" Unchecked="threeMinus"></CheckBox>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Подтвержденное наличие тромбофилии высокого риска" FontSize="12" Foreground="White" Checked="threePlus" Unchecked="threeMinus"></CheckBox>
+                <TextBlock Margin="15,0,5,0">
+                    <Hyperlink Click="HighRiskThrombophiliacs">Открыть список</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Сопутствующие заболевания" FontSize="12" Foreground="White" Checked="threePlus" Unchecked="threeMinus"></CheckBox>
+                <TextBlock Margin="15,0,5,0">
+                    <Hyperlink Click="AssociatedDiseases">Открыть список</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+
+            <CheckBox Content="Семейный анамнез неспровоцированной или связанное с воздействием эстрогена ВТЭО у родственника первой степени родства" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Известная тромбофилия низкого риска (без ВТЭО)" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+                <TextBlock Margin="15,0,5,0">
+                    <Hyperlink Click="WithoutVTEO">Открыть список</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="ИМТ ≥ 30" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+                <CheckBox Content="ИМТ ≥ 40" FontSize="12" Foreground="White" Margin="15,0,5,0" Checked="twoPlus" Unchecked="twoMinus"></CheckBox>
+                <TextBlock Margin="15,0,5,0">
+                    <Hyperlink Click="CalculateIMT">Калькуляция ИМТ</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            <CheckBox Content="Возраст (>35 лет)" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="≥ 3 родов" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Курение" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Варикозное расширение вен нижних конечностей тяжелой степени" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
         </ListBox>
 
         <Label Content="Акушерские факторы риска" HorizontalAlignment="Left" Margin="25,304,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
         <ListBox Margin="25,356,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
-            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Преэклампсия во время текущей беременности" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="ВРТ/ЭКО (только антенатально)" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Многоплодная беременность" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Кесарево сечение в родах" FontSize="12" Foreground="White" Checked="twoPlus" Unchecked="twoMinus"></CheckBox>
+            <CheckBox Content="Плановое кесарево сечение" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Вагинальное оперативное родоразрешение, в т.ч. с применением ротационных акушерских щипцов" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Продолжительные роды (>24 часов)" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Послеродовое кровотечение (>1 литра или переливание крови)" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Преждевременные роды &lt;37+0 недели при данной беременности " FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"/>
+            <CheckBox Content="Мертворождение в настоящую беременность" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
         </ListBox>
 
         <Label Content="Преходящие факторы риска" HorizontalAlignment="Left" Margin="25,538,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
         <ListBox Margin="25,590,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
-            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Любая хирургическая процедура во время беременности или послеродового периода, (за исключением наложения швов на промежность сразу после родов), например, аппендэктомия, послеродовая стерилизация" FontSize="12" Foreground="White" Checked="threePlus" Unchecked="threeMinus"></CheckBox>
+            <CheckBox Content="Неукротимая рвота" FontSize="12" Foreground="White" Checked="threePlus" Unchecked="threeMinus"></CheckBox>
+            <CheckBox Content="Синдром гиперстимуляции яичников (только первый триместр)" FontSize="12" Foreground="White" Checked="fourPlus" Unchecked="fourMinus"></CheckBox>
+            <CheckBox Content="Системная инфекция в настоящее время" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
+            <CheckBox Content="Ограничение подвижности, обезвоживание" FontSize="12" Foreground="White" Checked="onePlus" Unchecked="oneMinus"></CheckBox>
         </ListBox>
         <Button Content="Подсчёт" Margin="25,766,40,0" Click="Button_Click" Height="58" VerticalAlignment="Top" FontSize="24"/>
     </Grid>
