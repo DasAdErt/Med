@@ -5,9 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp523452453453t"
         mc:Ignorable="d"
-        Title="Medic Program" Height="800" Width="800" ResizeMode="NoResize">
+        Title="Medic Program" Height="875" Width="850" ResizeMode="NoResize">
     <Grid Background=" #D8E2F3" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Расчёт факторов риска ВТЭО: " Margin="0,10,0,0" VerticalAlignment="Top" Background="White" FontSize="25" Width="600" HorizontalAlignment="Center" Foreground="Black" BorderBrush="Red"/>
-        <Rectangle HorizontalAlignment="Center" Height="150" Margin="0,160,0,0" Stroke="Black" Fill="#4472C4" VerticalAlignment="Top" Width="750"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Расчёт факторов риска ВТЭО: " Margin="0,10,0,0" VerticalAlignment="Top" Background="White" FontSize="25" Width="600" HorizontalAlignment="Center" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
+
+        <Label Content="Предсуществующие факторы риска" HorizontalAlignment="Left" Margin="25,77,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox Margin="25,129,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
+            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Предшествующее ВТЭО, спровоцированное большим хирургическим вмешательством" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Подтвержденное наличие тромбофилии высокого риска" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Сопутствующие заболевания" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Семейный анамнез неспровоцированной или связанное с воздействием эстрогена ВТЭО у родственника первой степени родства" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Известная тромбофилия низкого риска (без ВТЭО)" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="ИМТ ≥ 30 " FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="ИМТ ≥ 40" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Возраст (>35 лет)" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="≥ 3 родов" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Курение" FontSize="12" Foreground="White"></CheckBox>
+            <CheckBox Content="Варикозное расширение вен нижних конечностей тяжелой степени" FontSize="12" Foreground="White"></CheckBox>
+        </ListBox>
+
+        <Label Content="Акушерские факторы риска" HorizontalAlignment="Left" Margin="25,304,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox Margin="25,356,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
+            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White"></CheckBox>
+        </ListBox>
+
+        <Label Content="Преходящие факторы риска" HorizontalAlignment="Left" Margin="25,538,0,0" Background="White" FontSize="25" VerticalAlignment="Top" Foreground="Black" BorderThickness="2" BorderBrush="Black"/>
+        <ListBox Margin="25,590,40,0" Background="#4472C4" Height="152" VerticalAlignment="Top">
+            <CheckBox Content="Предшествующее ВТЭО (за исключением однократного эпизода, связанного с большим хирургическим вмешательством)" FontSize="12" Foreground="White"></CheckBox>
+        </ListBox>
+        <Button Content="Подсчёт" Margin="25,766,40,0" Click="Button_Click" Height="58" VerticalAlignment="Top" FontSize="24"/>
     </Grid>
 </Window>

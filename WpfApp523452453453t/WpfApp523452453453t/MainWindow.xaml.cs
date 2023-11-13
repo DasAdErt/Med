@@ -24,5 +24,17 @@ namespace WpfApp523452453453t
         {
             InitializeComponent();
         }
+
+        int jopa;
+        
+        public void tupoy(object sender, RoutedEventArgs e)
+        {
+            jopa += 1;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
